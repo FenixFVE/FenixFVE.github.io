@@ -173,7 +173,8 @@ async function saveText() {
 async function initializeAndLoadEditor() {
   try {
     const response = await fetch('/load');
-    const data = await response.text();
+    let data = await response.text();
+    data = "print('Hello, world!')";
     if (window.editor) {
       window.editor.setValue(data);
     } else {
